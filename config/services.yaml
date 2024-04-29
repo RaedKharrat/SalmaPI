@@ -1,0 +1,29 @@
+# services.yaml
+
+parameters:
+    twilio_account_sid: 'AC519a235fd3f2296b46377d15a9adf7f6'
+    twilio_auth_token: 'a73a91b4944fd064cd7d64e536b2039e'
+    twilio_phone_number: '+13343842599'
+
+services:
+    # Define SmsService with explicitly configured parameters
+    App\Service\SmsService:
+        arguments:
+            $twilioAccountSid: '%twilio_account_sid%'
+            $twilioAuthToken: '%twilio_auth_token%'
+            $twilioPhoneNumber: '%twilio_phone_number%'
+        autowire: true
+        autoconfigure: true
+
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    # makes classes in src/ available to be used as services
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'

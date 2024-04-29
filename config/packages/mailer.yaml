@@ -1,0 +1,4 @@
+framework:
+    mailer:
+        dsn: 'gmail+smtp://kharrat.raed@esprit.tn:lvzlzpwbbfkeknpc@default'
+        message_bus:  false
